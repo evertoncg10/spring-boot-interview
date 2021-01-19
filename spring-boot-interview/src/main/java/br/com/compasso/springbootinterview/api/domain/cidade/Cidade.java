@@ -43,7 +43,4 @@ public class Cidade {
 	@Enumerated(EnumType.STRING)
 	@Column(length = 2)
 	private Estado estado;
-
-	@OneToMany(mappedBy = "cidade")
-	private Set<Cliente> clientes = new HashSet<>(0);
 }

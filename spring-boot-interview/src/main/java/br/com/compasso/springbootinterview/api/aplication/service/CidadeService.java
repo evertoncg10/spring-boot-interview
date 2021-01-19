@@ -19,8 +19,7 @@ public class CidadeService {
 	private CidadeRepository cidadeRepository;
 
 	public List<Cidade> listAll() {
-		List<Cidade> findAll = cidadeRepository.findAll();
-		return findAll;
+		return cidadeRepository.findAll();
 	}
 
 	public Cidade findById(Long id) {
@@ -30,8 +29,7 @@ public class CidadeService {
 	}
 
 	public Cidade findByName(String nome) {
-		Optional<Cidade> optionalCidade = null;
-		optionalCidade = Optional.ofNullable(cidadeRepository.findByNome(nome));
+		Optional<Cidade> optionalCidade = Optional.ofNullable(cidadeRepository.findByNome(nome));
 		Cidade cidade = optionalCidade.orElseThrow(() -> new EmptyResultDataAccessException(1));
 		return cidade;
 	}
