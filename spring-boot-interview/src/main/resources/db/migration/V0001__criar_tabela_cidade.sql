@@ -7,6 +7,9 @@ CREATE TABLE public.cidade
 )
 
 TABLESPACE pg_default;
+
+ALTER TABLE public.cidade
+    OWNER to postgres;
   
 INSERT INTO public.cidade(nome, estado) VALUES('Blumenau','SC');
 INSERT INTO public.cidade(nome, estado) VALUES('Passo Fundo','RS');
