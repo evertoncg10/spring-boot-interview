@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import br.com.compasso.springbootinterview.api.domain.cidade.exception.NegocioException;
+
 @RestControllerAdvice
 public class SpringBootInterviewExceptionHandler extends ResponseEntityExceptionHandler {
 
@@ -28,9 +30,21 @@ public class SpringBootInterviewExceptionHandler extends ResponseEntityException
 			WebRequest request) {
 		String mensagemUsuario = messageSource.getMessage("recurso.nao-encontrado", null,
 				LocaleContextHolder.getLocale());
+
 		String mensagemDesenvolvedor = ex.toString();
 		List<Erro> erros = Arrays.asList(new Erro(mensagemUsuario, mensagemDesenvolvedor));
 		return handleExceptionInternal(ex, erros, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
+	}
+
+	@ExceptionHandler({ NegocioException.class })
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	public ResponseEntity<Object> handleNegocio(NegocioException ex, WebRequest request) {
+		String mensagemUsuario = ex.getMessage();
+
+		String mensagemDesenvolvedor = ex.toString();
+		List<Erro> erros = Arrays.asList(new Erro(mensagemUsuario, mensagemDesenvolvedor));
+
+		return handleExceptionInternal(ex, erros, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
 	}
 
 }

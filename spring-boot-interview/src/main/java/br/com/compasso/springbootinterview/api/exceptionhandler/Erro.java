@@ -17,5 +17,4 @@ public class Erro {
 	public String getMensagemDesenvolvedor() {
 		return mensagemDesenvolvedor;
 	}
-
 }

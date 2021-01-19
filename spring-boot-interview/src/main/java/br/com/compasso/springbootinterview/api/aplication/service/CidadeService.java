@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.compasso.springbootinterview.api.domain.cidade.Cidade;
 import br.com.compasso.springbootinterview.api.domain.cidade.CidadeRepository;
+import br.com.compasso.springbootinterview.api.domain.cidade.exception.NegocioException;
 import br.com.compasso.springbootinterview.api.enums.Estado;
 
 @Service
@@ -40,5 +41,13 @@ public class CidadeService {
 		optionalCidade = Optional.ofNullable(cidadeRepository.findByEstado(estado));
 		Cidade cidade = optionalCidade.orElseThrow(() -> new EmptyResultDataAccessException(1));
 		return cidade;
+	}
+
+	public Cidade create(Cidade cidade) {
+		Cidade cidadeExistente = cidadeRepository.findByNome(cidade.getNome());
+		if (cidadeExistente != null && !cidadeExistente.equals(cidade)) {
+			throw new NegocioException("Já existe um cliente cadastrado com este e-mail");
+		}
+		return cidadeRepository.save(cidade);
 	}
 }
