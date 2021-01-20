@@ -59,7 +59,7 @@ Dicas:
 2) Pode rodar atráves de uma IDE como Eclipse, IntelliJ.
    Pode rodar através do jar na pasta target com o comando: java -jar target/spring-boot-interview-0.0.1-SNAPSHOT.jar
 3) Após iniciar a aplicação acessar a página do swagger para verificar os end points
-   http://localhost:8080/swagger-ui.html
-OBS: A aplicação criará as tabelas do banco de dados através do flyway e inserirá alguns dados nas tabelas para testes.
+   http://localhost:8080/swagger-ui.html 
+   OBS: A aplicação criará as tabelas do banco de dados através do flyway e inserirá alguns dados nas tabelas para testes.
 
 
