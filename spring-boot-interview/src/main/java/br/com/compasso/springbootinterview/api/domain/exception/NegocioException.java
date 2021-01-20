@@ -1,4 +1,4 @@
-package br.com.compasso.springbootinterview.api.domain.cidade.exception;
+package br.com.compasso.springbootinterview.api.domain.exception;
 
 public class NegocioException extends RuntimeException {
 

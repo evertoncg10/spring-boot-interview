@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import br.com.compasso.springbootinterview.api.domain.cidade.exception.NegocioException;
+import br.com.compasso.springbootinterview.api.domain.exception.NegocioException;
 
 @RestControllerAdvice
 public class SpringBootInterviewExceptionHandler extends ResponseEntityExceptionHandler {

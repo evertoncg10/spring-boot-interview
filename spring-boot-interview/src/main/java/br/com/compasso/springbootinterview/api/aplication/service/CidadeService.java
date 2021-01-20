@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.compasso.springbootinterview.api.domain.cidade.Cidade;
 import br.com.compasso.springbootinterview.api.domain.cidade.CidadeRepository;
-import br.com.compasso.springbootinterview.api.domain.cidade.exception.NegocioException;
+import br.com.compasso.springbootinterview.api.domain.exception.NegocioException;
 import br.com.compasso.springbootinterview.api.enums.Estado;
 
 @Service
